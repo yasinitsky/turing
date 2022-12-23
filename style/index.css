@@ -1,0 +1,125 @@
+.content-blocks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-block-left, .content-block-right {
+    width: calc(50% - 30px);
+}
+
+.content-block-title {
+    font-size: 2em;
+    text-align: center;
+}
+
+.content-block-content {
+    padding: 10px 0;
+}
+
+.content-block-content > p, .content-block-content li {
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+.content-block-content > p:not(:first-child) {
+    margin-top: 15px;
+}
+
+.content-block-content code {
+    box-sizing: border-box;
+    background: rgb(194, 194, 194);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+.content-compiler-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-compiler {
+    margin-top: 10px;
+    width: 100%;
+    display: inline-flex;
+    line-height: 22px;
+    gap: 10px;
+    background: rgb(238, 238, 238);
+    border-radius: 3px 3px 0 0;
+    border:1px solid rgb(223, 223, 223);
+}
+
+.content-compiler-lines {
+    width: auto;
+    text-align: right;
+    padding-left: 12px;
+}
+
+.content-compiler-lines span {
+    counter-increment: linenumber;
+}
+
+.content-compiler-lines span::before {
+    content: counter(linenumber);
+    display: block;
+    color: #000;
+}
+
+.content-compiler-input {
+    resize: none;
+    width: 100%;
+    outline: none;
+    line-height: 22px;
+    padding: 0;
+    border: 0;
+}
+
+.content-compiler-button {
+    width: 100%;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 10px 0;
+    background: rgb(0, 138, 0);
+    border: 0;
+    border-radius: 0 0 3px 3px;
+    transition: .1s linear;
+}
+
+.content-compiler-button:hover {
+    background: rgb(0, 128, 0);
+    cursor: pointer;
+}
+
+.content-compiler-button:active {
+    background: rgb(0, 118, 0);
+}
+
+#content-compiler-error {
+    color: #fff;
+    background: rgb(201, 41, 41);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .content-blocks {
+        display: block;
+        width: 100%;
+    }
+
+    .content-block-left, .content-block-right {
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .content-compiler-wrapper {
+        width: 100%;
+    }
+}

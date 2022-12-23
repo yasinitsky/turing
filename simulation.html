@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/reset.css">
+        <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/simulation.css">
+        <title>Turing Machine Simulator</title>
+    </head>
+    <body>
+        <header id="header">
+            <a href="index.html">
+                <h1 class="header-title">Turing Machine Simulator</h1>
+            </a>
+        </header>
+        <article id="content">
+            <div class="content-data">
+                <div class="content-data-input-group">
+                    <input id="content-data-input-group-input" placeholder="Turing Machine input">
+                    <button id="content-data-input-group-start-btn">Start</button>
+                </div>
+            </div>
+            <div id="content-memory">
+                
+            </div>
+            <div class="content-verdict">
+                <h2>Machine verdict: <span id="content-verdict"></h2>
+            </div>
+            <h2 class="content-info">To share your Machine with other people just copy the link to this page (in case this page has fixed IP or domain).</h2>
+        </article>
+        <footer id="footer"><h3>Yaroslav Yasynytskyi &copy; 2022</h3></footer>
+
+        <script src="js/machine.js"></script>
+        <script src="js/view.js"></script>
+        <script src="js/simulation.js"></script>
+        <script>
+            /* let machine = new Machine();
+            machine.setByteCode('eyJzdGF0ZXMiOnsicTAiOnsiMCI6eyJuZXh0U3RhdGUiOiJxUmlnaHQwIiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6MH0sIjEiOnsibmV4dFN0YXRlIjoicVJpZ2h0MSIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjB9LCJfIjp7Im5leHRTdGF0ZSI6InFBY2NlcHQiLCJuZXh0VmFsdWUiOiJfIiwib3BlcmF0aW9uIjoyfX0sInFSaWdodDAiOnsiMCI6eyJuZXh0U3RhdGUiOiJxUmlnaHQwIiwibmV4dFZhbHVlIjoiMCIsIm9wZXJhdGlvbiI6MH0sIjEiOnsibmV4dFN0YXRlIjoicVJpZ2h0MCIsIm5leHRWYWx1ZSI6IjEiLCJvcGVyYXRpb24iOjB9LCJfIjp7Im5leHRTdGF0ZSI6InFTZWFyY2gwTCIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjF9fSwicVJpZ2h0MSI6eyIwIjp7Im5leHRTdGF0ZSI6InFSaWdodDEiLCJuZXh0VmFsdWUiOiIwIiwib3BlcmF0aW9uIjowfSwiMSI6eyJuZXh0U3RhdGUiOiJxUmlnaHQxIiwibmV4dFZhbHVlIjoiMSIsIm9wZXJhdGlvbiI6MH0sIl8iOnsibmV4dFN0YXRlIjoicVNlYXJjaDFMIiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6MX19LCJxU2VhcmNoMEwiOnsiMCI6eyJuZXh0U3RhdGUiOiJxMSIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjF9LCIxIjp7Im5leHRTdGF0ZSI6InFSZWplY3QiLCJuZXh0VmFsdWUiOiIxIiwib3BlcmF0aW9uIjoyfSwiXyI6eyJuZXh0U3RhdGUiOiJxQWNjZXB0IiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6Mn19LCJxU2VhcmNoMUwiOnsiMCI6eyJuZXh0U3RhdGUiOiJxUmVqZWN0IiwibmV4dFZhbHVlIjoiMCIsIm9wZXJhdGlvbiI6Mn0sIjEiOnsibmV4dFN0YXRlIjoicTEiLCJuZXh0VmFsdWUiOiJfIiwib3BlcmF0aW9uIjoxfSwiXyI6eyJuZXh0U3RhdGUiOiJxQWNjZXB0IiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6Mn19LCJxMSI6eyIwIjp7Im5leHRTdGF0ZSI6InFMZWZ0MCIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjF9LCIxIjp7Im5leHRTdGF0ZSI6InFMZWZ0MSIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjF9LCJfIjp7Im5leHRTdGF0ZSI6InFBY2NlcHQiLCJuZXh0VmFsdWUiOiJfIiwib3BlcmF0aW9uIjoyfX0sInFMZWZ0MCI6eyIwIjp7Im5leHRTdGF0ZSI6InFMZWZ0MCIsIm5leHRWYWx1ZSI6IjAiLCJvcGVyYXRpb24iOjF9LCIxIjp7Im5leHRTdGF0ZSI6InFMZWZ0MCIsIm5leHRWYWx1ZSI6IjEiLCJvcGVyYXRpb24iOjF9LCJfIjp7Im5leHRTdGF0ZSI6InFTZWFyY2gwUiIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjB9fSwicUxlZnQxIjp7IjAiOnsibmV4dFN0YXRlIjoicUxlZnQxIiwibmV4dFZhbHVlIjoiMCIsIm9wZXJhdGlvbiI6MX0sIjEiOnsibmV4dFN0YXRlIjoicUxlZnQxIiwibmV4dFZhbHVlIjoiMSIsIm9wZXJhdGlvbiI6MX0sIl8iOnsibmV4dFN0YXRlIjoicVNlYXJjaDFSIiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6MH19LCJxU2VhcmNoMFIiOnsiMCI6eyJuZXh0U3RhdGUiOiJxMCIsIm5leHRWYWx1ZSI6Il8iLCJvcGVyYXRpb24iOjB9LCIxIjp7Im5leHRTdGF0ZSI6InFSZWplY3QiLCJuZXh0VmFsdWUiOiIxIiwib3BlcmF0aW9uIjoyfSwiXyI6eyJuZXh0U3RhdGUiOiJxQWNjZXB0IiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6Mn19LCJxU2VhcmNoMVIiOnsiMCI6eyJuZXh0U3RhdGUiOiJxUmVqZWN0IiwibmV4dFZhbHVlIjoiMCIsIm9wZXJhdGlvbiI6Mn0sIjEiOnsibmV4dFN0YXRlIjoicTAiLCJuZXh0VmFsdWUiOiJfIiwib3BlcmF0aW9uIjowfSwiXyI6eyJuZXh0U3RhdGUiOiJxQWNjZXB0IiwibmV4dFZhbHVlIjoiXyIsIm9wZXJhdGlvbiI6Mn19fSwiaW5pdCI6InEwIiwiYWNjZXB0IjpbInFBY2NlcHQiXSwiYWxwaGFiZXQiOlsiMCIsIjEiXX0=');
+            machine.init("100101");
+            while(machine.step()) {}
+            console.log(machine.status); */
+        </script>
+    </body>
+</html>

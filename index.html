@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/reset.css">
+        <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/index.css">
+        <title>Turing Maching Simulator</title>
+    </head>
+    <body>
+        <header id="header">
+            <a href="index.html">
+                <h1 class="header-title">Turing Machine Simulator</h1>
+            </a>
+        </header>
+        <article id="content">
+            <div class="content-blocks">
+                <div class="content-block-left">
+                    <h2 class="content-block-title">What is Turing Machine?</h2>
+                    <div class="content-block-content">
+                        <p>
+                            A Turing machine is a mathematical model of computation describing an abstract machine that manipulates symbols on a strip of tape according to a table of rules. Despite the model's simplicity, it is capable of implementing any computer algorithm.
+                        </p>
+                        <p>
+                            The machine operates on an infinite memory tape divided into discrete cells, each of which can hold a single symbol drawn from a finite set of symbols called the alphabet of the machine. It has a "head" that, at any point in the machine's operation, is positioned over one of these cells, and a "state" selected from a finite set of states. At each step of its operation, the head reads the symbol in its cell. Then, based on the symbol and the machine's own present state, the machine writes a symbol into the same cell, and moves the head one step to the left or the right, or halts the computation. The choice of which replacement symbol to write and which direction to move is based on a finite table that specifies what to do for each combination of the current state and the symbol that is read.
+                        </p>
+                    </div>
+                </div>
+                <div class="content-block-right">
+                    <h2 class="content-block-title">Turing Machine programming language</h2>
+                    <div class="content-block-content">
+                        <p>
+                            The programming language consists of two types of constructs: configuration and control. The configuration ones are responsible for the initial settings of the machine: alphabet, initial state, final states, etc. Control structures - a finite set of states and the behavior of the machine in these states.
+                        </p>
+                        <p>
+                            Using of configuration commands: <code>[option]: [value(s)]</code>, where <code>[value(s)]</code> is one or multiple comma-separated values. Each command can be used only once.
+                        </p>
+                        <p>
+                            Available <code>[option]</code>:
+                            <ul>
+                                <li><code>alphabet</code> - machine alphabet. Letters and numbers only.</li>
+                                <li><code>init</code> - initial state.</li>
+                                <li><code>accept</code> - acceptable states.</li>
+                            </ul>
+                        </p>
+                        <p>
+                            Using of control commands: <br><code>[currentState],[currentValue] -> [newState],[newValue],[operation]</code>.<br>It means: <code>IF current state == [currentState] AND current value == [currentValue] THEN switch to [newState], write [newValue] in the current cell, do [operation] ENDIF</code>.
+                        </p>
+                        <p>
+                            Where:
+                            <ul>
+                                <li><code>[currentState]</code>, <code>[newState]</code> - name of the machine state. Any string that starts from the <code>q</code> character.</li>
+                                <li><code>[currentValue]</code>, <code>[newValue]</code> - symbol from machine alphabet or <code>_</code> for empty character.</li>
+                                <li><code>[operation]</code> - direction of "head" move. <code>&lt;</code> - left, <code>&gt;</code> - right, <code>-</code> - no move.</li>
+                            </ul>
+                        </p>
+                        <p>
+                            The construction described above can be used as many times as you like, provided that the <code>[currentState],[currentValue]</code> do not repeat.
+                        </p>
+                        <p>
+                            You can also comment the line using <code>//</code>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-compiler-wrapper">
+                <h2 class="content-block-title">Compiler</h2>
+                <div id="content-compiler-error"><p>Hello world</p></div>
+                <div class="content-compiler">
+                    <div class="content-compiler-lines">
+                        <span></span>
+                    </div>
+                    <textarea class="content-compiler-input" aria-setsize="0"></textarea>
+                </div>
+                <button class="content-compiler-button">Compile</button>
+            </div>
+        </article>
+        <footer id="footer"><h3>Yaroslav Yasynytskyi &copy; 2022</h3></footer>
+        
+        <script src="js/machine.js"></script>
+        <script src="js/validator.js"></script>
+        <script src="js/compiler.js"></script>
+        <script src="js/view.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
